@@ -12,5 +12,11 @@ namespace FitAndHealthy
         public string Comment { get; set; } 
         public int Rating { get; set; }
         public int RatedByNo { get; set; }
+
+        public User User { get; set; }
+        public Diet Diet { get; set; }
+        public Program Program { get; set; }
+        public Training Training { get; set; }
+        public Exercise Exercises { get; set; }
     }
 }

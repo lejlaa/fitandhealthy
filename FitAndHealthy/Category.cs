@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace FitAndHealthy
 {
-    public class Role
+    class Category
     {
-        public Role()
+        public Category()
         {
-            this.Actions = new List<Action>();
+            this.Subcategories = new List<Category>();
         }
         public int Id { get; set; }
-        public string Name { get; set; }
+        public String Name { get; set; }
 
-        public virtual ICollection<Action> Actions { get; set; }
-
+        public virtual ICollection<Category> Subcategories { get; set; }
     }
 }

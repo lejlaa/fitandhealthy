@@ -8,6 +8,11 @@ namespace FitAndHealthy
 {
     class Exercise
     {
+        public Exercise()
+        {
+            this.Comments = new List<Comment>();
+            this.Categories = new List<Category>();
+        }
         public int Id { get; set; }
         public String Name { get; set; }
         public int Rating { get; set; }
@@ -19,6 +24,8 @@ namespace FitAndHealthy
         public DateTimeOffset Duration { get; set; }
 
         public virtual ICollection<Training> Trainings { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
 
     }
 }

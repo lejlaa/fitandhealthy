@@ -11,6 +11,8 @@ namespace FitAndHealthy
         public Program()
         {
             this.Trainings = new List<Training>();
+            this.Categories = new List<Category>();
+            this.Users = new List<User>();
         }
         public int Id { get; set; }
         public string Name { get; set; }
@@ -20,7 +22,10 @@ namespace FitAndHealthy
         public int RatedByNo { get; set; }
         public string VideoLink { get; set; }
 
+        public User Author { get; set; }
+        public virtual ICollection<User> Users { get; set; }
         public virtual ICollection<Training> Trainings { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
 
     }
 }

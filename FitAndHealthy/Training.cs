@@ -11,6 +11,8 @@ namespace FitAndHealthy
         public Training()
         {
             this.Exercises = new List<Exercise>();
+            this.Comments = new List<Comment>();
+            this.Categories = new List<Category>();
         }
         public int Id { get; set; }
         public String Name { get; set; }
@@ -21,6 +23,8 @@ namespace FitAndHealthy
         public int Id { get; set; }
 
         public virtual ICollection<Exercise> Exercises { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
     }
 }
