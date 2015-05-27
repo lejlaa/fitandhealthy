@@ -46,8 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="Diet.cs" />
     <Compile Include="Exercise.cs" />
+    <Compile Include="Mappers\ActionMap.cs" />
+    <Compile Include="Mappers\CategoryMap.cs" />
+    <Compile Include="Mappers\CommentMap.cs" />
+    <Compile Include="Mappers\DietMap.cs" />
+    <Compile Include="Mappers\ExerciseMap.cs" />
+    <Compile Include="Mappers\ProgramMap.cs" />
+    <Compile Include="Mappers\RoleMap.cs" />
+    <Compile Include="Mappers\TrainingMap.cs" />
+    <Compile Include="Mappers\UserMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />

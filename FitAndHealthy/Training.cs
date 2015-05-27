@@ -20,10 +20,9 @@ namespace FitAndHealthy
         public int Rating { get; set; }
         public String Video { get; set; }
         public int RatedByNo { get; set; }
-        public int Id { get; set; }
 
         public virtual ICollection<Exercise> Exercises { get; set; }
-        public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }x
         public virtual ICollection<Comment> Comments { get; set; }
 
     }

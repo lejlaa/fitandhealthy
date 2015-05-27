@@ -15,6 +15,10 @@ namespace FitAndHealthy
         public int Id { get; set; }
         public String Name { get; set; }
 
+        
         public virtual ICollection<Category> Subcategories { get; set; }
+        public virtual ICollection<Training> Trainings { get; set; }
+        public virtual ICollection<Program> Programs { get; set; }
+        public virtual ICollection<Exercise> Exercises { get; set; }
     }
 }
