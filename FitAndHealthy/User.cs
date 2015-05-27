@@ -8,5 +8,10 @@ namespace FitAndHealthy
 {
     class User
     {
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Passwooed { get; set; }
+        public bool Banned { get; set;  }
+
     }
 }
