@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Action.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Diet.cs" />
     <Compile Include="Exercise.cs" />
+    <Compile Include="FandHContext.cs" />
     <Compile Include="Mappers\ActionMap.cs" />
     <Compile Include="Mappers\CategoryMap.cs" />
     <Compile Include="Mappers\CommentMap.cs" />
