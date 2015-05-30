@@ -24,6 +24,7 @@ namespace FitAndHealthy
         public string VideoLink { get; set; }
 
         public User Author { get; set; }
+        public Diet Diet { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<User> Users { get; set; }
         public virtual ICollection<Training> Trainings { get; set; }

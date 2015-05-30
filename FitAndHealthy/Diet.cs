@@ -12,6 +12,7 @@ namespace FitAndHealthy
         public Diet()
         {
             this.Comments = new List<Comment>();
+            this.Programs = new List<Program>();
         }
         public int Id { get; set; }
         public string Name { get; set; }
@@ -19,7 +20,7 @@ namespace FitAndHealthy
         public int Rating { get; set; }
         public int RatedByNo { get; set; }
 
-        public virtual Program Program { get; set; }
+        public virtual ICollection <Program> Programs { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
 
     }

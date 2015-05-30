@@ -17,6 +17,6 @@ namespace FitAndHealthy
         public Diet Diet { get; set; }
         public Program Program { get; set; }
         public Training Training { get; set; }
-        public Exercise Exercises { get; set; }
+        public Exercise Exercise { get; set; }
     }
 }
