@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace FitAndHealthy
 {
-    class Comment
+    public class Comment
     {
         public int Id { get; set; }
-        public string Comment { get; set; } 
+        public string CommentText { get; set; } 
         public int Rating { get; set; }
         public int RatedByNo { get; set; }
 

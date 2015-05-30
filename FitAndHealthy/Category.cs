@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitAndHealthy
 {
-    class Category
+    public class Category
     {
         public int Id { get; set; }
         public String Name { get; set; }

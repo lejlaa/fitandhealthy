@@ -8,7 +8,7 @@ using FitAndHealthy.Mappers;
 
 namespace FitAndHealthy
 {
-    class FandHContext : DbContext
+    public class FandHContext : DbContext
     {
         public DbSet<Diet> Diets { get; set; }
         public DbSet<Exercise> Exercises { get; set; }

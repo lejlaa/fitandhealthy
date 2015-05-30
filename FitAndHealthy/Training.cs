@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitAndHealthy
 {
-    class Training
+    public class Training
     {
         public Training()
         {
