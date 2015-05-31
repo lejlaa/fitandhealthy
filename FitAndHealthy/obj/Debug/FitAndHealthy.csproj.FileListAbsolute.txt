@@ -16,5 +16,5 @@ C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHeal
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHealthy.pdb
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.dll
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.xml
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.xml

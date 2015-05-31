@@ -10,7 +10,7 @@ namespace FitAndHealthy.Mappers
     class DietMap : EntityTypeConfiguration<Diet>
     {
         public DietMap() { 
-        this.ToTable("Diets");             
+             this.ToTable("Diets");             
              this.HasKey(p => p.Id);  
              this.Property(p => p.Id).HasColumnName("Id").IsRequired();             
              this.Property(p => p.Name).HasColumnName("Name").IsRequired().HasMaxLength(40);

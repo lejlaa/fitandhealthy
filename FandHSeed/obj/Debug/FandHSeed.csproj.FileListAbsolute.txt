@@ -1,0 +1,12 @@
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.csprojResolveAssemblyReference.cache
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FandHSeed.exe.config
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FandHSeed.exe
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FandHSeed.pdb
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\EntityFramework.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FitAndHealthy.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FitAndHealthy.pdb
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\EntityFramework.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.exe
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.pdb

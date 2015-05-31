@@ -13,6 +13,7 @@ namespace FitAndHealthy
             this.Roles = new List<Role>();
             this.Programs = new List<Program>();
             this.Comments = new List<Comment>();
+            this.UserPrograms = new List<Program>();
         }
         public int Id { get; set; }
         public string Username { get; set; }
@@ -23,6 +24,7 @@ namespace FitAndHealthy
 
         public virtual ICollection<Program> Programs { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Program> UserPrograms { get; set; }
 
     }
 }
