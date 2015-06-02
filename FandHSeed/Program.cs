@@ -11,69 +11,265 @@ namespace FandHSeed
 {
     class Program
     {
-        static string sourceData = @"C:\Users\Layla\Documents\GitHub\fitandhealthy\FitandHealthyData.xls";
+        static string sourceData = @"C:\Users\Layla\Documents\GitHub\fitandhealthy\FitandHealthyData.xlsx";
         static void Main(string[] args)
         {
-            getPrograms();
+            getData();
+
+            //getUsers();
+            //getRoles();
+            //getActions();
+            //getDiets();
+            //getCategories();
+            //getExercises();
             //getTrainings();
+            //getComments();
+            //getPrograms();
+
             Console.ReadLine();
 
         }
-        static void getPrograms()
+
+
+
+        static void getData()
         {
-            //DataTable rawData = OpenExcel(sourceData, "Programs");
             using (var ctx = new FandHContext())
             {
                 ctx.Configuration.AutoDetectChangesEnabled = false;
-
                 ctx.Configuration.ValidateOnSaveEnabled = false;
 
-                Role r = new Role();
-                r.Name = "role";
-                ctx.Roles.Add(r);
+                Role r1 = new Role();
+                r1.Name = "Admin";
+                ctx.Roles.Add(r1);
 
-                User author = new User();
-                author.Username = "Emir";
-                author.Password = "fs";
-                ctx.Users.Add(author);
-
-
-                //ctx.SaveChanges();
+                Role r2 = new Role();
+                r2.Name = "User";
+                ctx.Roles.Add(r2);
 
 
-                FitAndHealthy.Action action = new FitAndHealthy.Action();
-                action.Name = "This is my action";
-                action.Description = "Description";
-                ctx.Actions.Add(action);
+                User user1 = new User();
+                user1.Username = "lejla";
+                user1.Password = "lejla";
+                user1.Roles.Add(r1);
+                user1.Roles.Add(r2);
+                user1.Banned = "false";
+                ctx.Users.Add(user1);
 
+                //User user2 = new User();
+                //user2.Username = "nedim";
+                //user2.Password = "nedim";
+                //user2.Roles.Add(r1);
+                //user2.Roles.Add(r2);
+                //user2.Banned = "false";
+                //ctx.Users.Add(user2);
+
+                User user3 = new User();
+                user3.Username = "berina";
+                user3.Password = "berina";
+                user3.Roles.Add(r2);
+                user3.Banned = "false";
+                ctx.Users.Add(user3);
+
+
+                FitAndHealthy.Action action1 = new FitAndHealthy.Action();
+                action1.Name = "This is my action";
+                action1.Description = "Description";
+                ctx.Actions.Add(action1);
+
+                r1.Actions.Add(action1);
 
                 Diet someDiet = new Diet();
                 someDiet.Name = "SomeDiet";
                 someDiet.Description = "fakifakfhadhfsdjfh";
                 ctx.Diets.Add(someDiet);
 
-
                 FitAndHealthy.Program pr1 = new FitAndHealthy.Program();
                 pr1.Name = "Program 1";
                 pr1.Description = "blabla";
-                pr1.Author = author;
+                pr1.Author = user1;
                 pr1.Diet = someDiet;
                 ctx.Programs.Add(pr1);
 
                 FitAndHealthy.Program pr2 = new FitAndHealthy.Program();
                 pr2.Name = "Program 2";
                 pr2.Description = "blablabla";
-                pr2.Author = author;
+                pr2.Author = user3;
                 pr2.Diet = someDiet;
                 ctx.Programs.Add(pr2);
 
-                /*
+                ctx.SaveChanges();
+            }
+        }
+
+
+        /*
+        static void getRoles()
+        {
+            DataTable rawData = OpenExcel(sourceData, "Roles");
+            using (var ctx = new FandHContext())
+            {
+                ctx.Configuration.AutoDetectChangesEnabled = false;
+                ctx.Configuration.ValidateOnSaveEnabled = false;
+
+                foreach (DataRow row in rawData.Rows)
+                {
+                    Role role = new Role();
+                    role.Name = row.ItemArray.GetValue(1).ToString();
+                    ctx.Roles.Add(role);
+                }
+                ctx.SaveChanges();
+            }
+        }
+
+        static void getPrograms()
+        {
+            DataTable rawData = OpenExcel(sourceData, "Programs");
+            using (var ctx = new FandHContext())
+            {
+                ctx.Configuration.AutoDetectChangesEnabled = false;
+
+                ctx.Configuration.ValidateOnSaveEnabled = false;   
+
+                
                 foreach (DataRow row in rawData.Rows)
                 {
                     FitAndHealthy.Program program = new FitAndHealthy.Program();
                     program.Name = row.ItemArray.GetValue(1).ToString();
+                    program.Description = row.ItemArray.GetValue(2).ToString();
                     ctx.Programs.Add(program);
-                }*/
+                }
+                ctx.SaveChanges();
+            }
+        }
+
+        static void getUsers()
+        {
+            DataTable rawData = OpenExcel(sourceData, "Users");
+            using (var ctx = new FandHContext())
+            {
+                ctx.Configuration.AutoDetectChangesEnabled = false;
+                ctx.Configuration.ValidateOnSaveEnabled = false;
+
+                foreach (DataRow row in rawData.Rows)
+                {
+                    User user = new User();
+                    user.Username = row.ItemArray.GetValue(1).ToString();
+                    user.Password = row.ItemArray.GetValue(2).ToString();
+                    user.Banned = row.ItemArray.GetValue(3).ToString();
+                    ctx.Users.Add(user);
+                }
+                ctx.SaveChanges();
+            }
+        }
+
+        static void getActions()
+        {
+            DataTable rawData = OpenExcel(sourceData, "Actions");
+            using (var ctx = new FandHContext())
+            {
+                ctx.Configuration.AutoDetectChangesEnabled = false;
+                ctx.Configuration.ValidateOnSaveEnabled = false;
+
+                foreach (DataRow row in rawData.Rows)
+                {
+                    FitAndHealthy.Action action = new FitAndHealthy.Action();
+                    action.Name = row.ItemArray.GetValue(1).ToString();
+                    action.Description = row.ItemArray.GetValue(2).ToString();
+                    ctx.Actions.Add(action);
+                }
+                ctx.SaveChanges();
+            }
+        }
+
+        static void getDiets()
+        {
+            DataTable rawData = OpenExcel(sourceData, "Diets");
+            using (var ctx = new FandHContext())
+            {
+                ctx.Configuration.AutoDetectChangesEnabled = false;
+                ctx.Configuration.ValidateOnSaveEnabled = false;
+
+                foreach (DataRow row in rawData.Rows)
+                {
+                    Diet diet = new Diet();
+                    diet.Name = row.ItemArray.GetValue(1).ToString();
+                    diet.Description = row.ItemArray.GetValue(2).ToString();
+                    ctx.Diets.Add(diet);
+                }
+                ctx.SaveChanges();
+            }
+        }
+
+        static void getCategories()
+        {
+            DataTable rawData = OpenExcel(sourceData, "Categories");
+            using (var ctx = new FandHContext())
+            {
+                ctx.Configuration.AutoDetectChangesEnabled = false;
+                ctx.Configuration.ValidateOnSaveEnabled = false;
+
+                foreach (DataRow row in rawData.Rows)
+                {
+                    Category category = new Category();
+                    category.Name = row.ItemArray.GetValue(1).ToString();
+                    ctx.Categories.Add(category);
+                }
+                ctx.SaveChanges();
+            }
+        }
+
+        static void getExercises()
+        {
+            DataTable rawData = OpenExcel(sourceData, "Exercises");
+            using (var ctx = new FandHContext())
+            {
+                ctx.Configuration.AutoDetectChangesEnabled = false;
+                ctx.Configuration.ValidateOnSaveEnabled = false;
+
+                foreach (DataRow row in rawData.Rows)
+                {
+                    Exercise exercise = new Exercise();
+                    exercise.Name = row.ItemArray.GetValue(1).ToString();
+                    ctx.Exercises.Add(exercise);
+                }
+                ctx.SaveChanges();
+            }
+        }
+
+        static void getTrainings()
+        {
+            DataTable rawData = OpenExcel(sourceData, "Trainings");
+            using (var ctx = new FandHContext())
+            {
+                ctx.Configuration.AutoDetectChangesEnabled = false;
+                ctx.Configuration.ValidateOnSaveEnabled = false;
+
+                foreach (DataRow row in rawData.Rows)
+                {
+                    Training training = new Training();
+                    training.Name = row.ItemArray.GetValue(1).ToString();
+                    training.Description = row.ItemArray.GetValue(2).ToString();
+                    ctx.Trainings.Add(training);
+                }
+                ctx.SaveChanges();
+            }
+        }
+
+        static void getComments()
+        {
+            DataTable rawData = OpenExcel(sourceData, "Comments");
+            using (var ctx = new FandHContext())
+            {
+                ctx.Configuration.AutoDetectChangesEnabled = false;
+                ctx.Configuration.ValidateOnSaveEnabled = false;
+
+                foreach (DataRow row in rawData.Rows)
+                {
+                    Comment comment = new Comment();
+                    comment.CommentText = row.ItemArray.GetValue(1).ToString();
+                    ctx.Comments.Add(comment);
+                }
                 ctx.SaveChanges();
             }
         }
@@ -94,5 +290,6 @@ namespace FandHSeed
 
             return dt;
         }
+         */
     }
 }

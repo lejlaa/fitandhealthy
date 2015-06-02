@@ -15,9 +15,9 @@ namespace FitAndHealthy.Mappers
              this.HasKey(p => p.Id);  
              this.Property(p => p.Id).HasColumnName("Id").IsRequired();             
   
-            this.Property(p => p.Rating).HasColumnName("Rating");
+             this.Property(p => p.Rating).HasColumnName("Rating");
              this.Property(p => p.RatedByNo).HasColumnName("RatedByNo");
-            this.Property(p => p.CommentText).HasColumnName("Comment").HasMaxLength(100);
+             this.Property(p => p.CommentText).HasColumnName("Comment").HasMaxLength(100);
          }   
     }
 }

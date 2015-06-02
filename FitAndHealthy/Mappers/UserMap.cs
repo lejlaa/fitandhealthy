@@ -15,7 +15,7 @@ namespace FitAndHealthy.Mappers
             this.HasKey(p => p.Id);
             this.Property(p => p.Id).HasColumnName("Id").IsRequired();
             this.Property(p => p.Username).HasColumnName("Username").IsRequired().HasMaxLength(40);
-            this.Property(p => p.Banned).HasColumnName("Janned").IsRequired();
+            this.Property(p => p.Banned).HasColumnName("Banned").IsRequired();
             this.Property(p => p.Password).HasColumnName("Password").IsRequired();
 
         }

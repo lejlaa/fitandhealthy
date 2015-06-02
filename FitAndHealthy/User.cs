@@ -18,7 +18,7 @@ namespace FitAndHealthy
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public bool Banned { get; set;  }
+        public string Banned { get; set;  }
 
         public virtual ICollection<Role> Roles { get; set; }
 
