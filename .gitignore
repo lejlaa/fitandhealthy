@@ -3,5 +3,14 @@ FitAndHealthy.v12.suo
 FitAndHealthy.v12.suo
 FitAndHealthy/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 FitAndHealthy/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
-FandHSeed/bin/Debug/FandHSeed.vshost.exe
+
+FandHSeed/App.config
 FitAndHealthy/App.config
+FitAndHealthy/bin/Debug/FitAndHealthy.dll.config
+FitAndHealthy/bin/Debug/FitAndHealthy.dll.config
+FitAndHealthy/obj/Debug/FitAndHealthy.csproj.FileListAbsolute.txt
+FitAndHealthy/obj/Debug/FitAndHealthy.csprojResolveAssemblyReference.cache
+FitAndHealthyAPI/FitAndHealthyAPI.csproj
+FitAndHealthyAPI/obj/Debug/FitAndHealthyAPI.csproj.FileListAbsolute.txt
+FitAndHealthyAPI/obj/Debug/FitAndHealthyAPI.csprojResolveAssemblyReference.cache
+FitAndHealthyAPI/obj/Debug/FitAndHealthyAPI.pdb
