@@ -13,7 +13,11 @@ namespace FitAndHealthyAPI.Controllers
         public List<User> Get()
         {
             baseInterface<User> users = new baseRepository<User>(new FandHContext());
-            return users.Get().ToList();
+
+            List<User> allUsers = users.Get().ToList();
+
+            
+            return allUsers;
         }
 
         public User Get(int id)
