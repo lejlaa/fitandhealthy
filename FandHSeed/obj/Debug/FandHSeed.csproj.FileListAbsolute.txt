@@ -10,3 +10,6 @@ C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\EntityFramewor
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.exe
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.pdb
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FandHSeed.exe.config
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.exe
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.pdb
