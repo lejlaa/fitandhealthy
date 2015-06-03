@@ -13,3 +13,12 @@ C:\Users\Layla\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.pdb
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FandHSeed.exe.config
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.exe
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.pdb
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FandHSeed.exe
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FandHSeed.pdb
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\EntityFramework.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FitAndHealthy.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\FitAndHealthy.pdb
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\EntityFramework.xml
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FandHSeed\obj\Debug\FandHSeed.csprojResolveAssemblyReference.cache
