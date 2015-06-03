@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitAndHealthy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,5 +10,16 @@ namespace FitAndHealthyAPI.Controllers
 {
     public class UsersController : ApiController
     {
+        public List<User> Get()
+        {
+            baseInterface<User> users = new baseRepository<User>(new FandHContext());
+            return users.Get().ToList();
+        }
+
+        public User Get(int id)
+        {
+            baseInterface<User> users = new baseRepository<User>(new FandHContext());
+            return users.Get(id);
+        }
     }
 }
