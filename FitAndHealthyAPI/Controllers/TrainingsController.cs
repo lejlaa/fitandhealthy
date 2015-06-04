@@ -21,5 +21,20 @@ namespace FitAndHealthyAPI.Controllers
             baseInterface<Training> trainings = new baseRepository<Training>(new FandHContext());
             return trainings.Get(id);
         }
+
+        public HttpResponseMessage Post([FromBody] Training training)
+        {
+            var ctx = new FandHContext();
+            ctx.Configuration.AutoDetectChangesEnabled = false;
+            ctx.Configuration.ValidateOnSaveEnabled = false;
+
+            ctx.Trainings.Add(training);
+            if (ctx.SaveChanges() != 0)
+            {
+                return new HttpResponseMessage(HttpStatusCode.Created);
+            }
+
+            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+        }
     }
 }

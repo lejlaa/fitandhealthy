@@ -21,5 +21,20 @@ namespace FitAndHealthyAPI.Controllers
             baseInterface<FitAndHealthy.Action> actions = new baseRepository<FitAndHealthy.Action>(new FandHContext());
             return actions.Get(id);
         }
+
+        public HttpResponseMessage Post([FromBody] FitAndHealthy.Action action)
+        {
+            var ctx = new FandHContext();
+            ctx.Configuration.AutoDetectChangesEnabled = false;
+            ctx.Configuration.ValidateOnSaveEnabled = false;
+
+            ctx.Actions.Add(action);
+            if (ctx.SaveChanges() != 0)
+            {
+                return new HttpResponseMessage(HttpStatusCode.Created);
+            }
+
+            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+        }
     }
 }

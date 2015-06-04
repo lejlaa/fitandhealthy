@@ -8,28 +8,27 @@ using System.Web.Http;
 
 namespace FitAndHealthyAPI.Controllers
 {
-    public class DietsController : ApiController
-
+    public class ProgramsController : ApiController
     {
-        public List<Diet> Get()
+        public List<Program> Get()
         {
-            baseInterface<Diet> diets = new baseRepository<Diet>(new FandHContext());
-            return diets.Get().ToList();
+            baseInterface<Program> programs = new baseRepository<Program>(new FandHContext());
+            return programs.Get().ToList();
         }
 
-        public Diet Get(int id)
+        public Program Get(int id)
         {
-            baseInterface<Diet> diets = new baseRepository<Diet>(new FandHContext());
-            return diets.Get(id);
+            baseInterface<Program> programs = new baseRepository<Program>(new FandHContext());
+            return programs.Get(id);
         }
 
-        public HttpResponseMessage Post([FromBody] Diet diet)
+        public HttpResponseMessage Post([FromBody] Program program)
         {
             var ctx = new FandHContext();
             ctx.Configuration.AutoDetectChangesEnabled = false;
             ctx.Configuration.ValidateOnSaveEnabled = false;
 
-            ctx.Diets.Add(diet);
+            ctx.Programs.Add(program);
             if (ctx.SaveChanges() != 0)
             {
                 return new HttpResponseMessage(HttpStatusCode.Created);

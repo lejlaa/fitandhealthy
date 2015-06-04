@@ -21,5 +21,20 @@ namespace FitAndHealthyAPI.Controllers
             baseInterface<Category> categories = new baseRepository<Category>(new FandHContext());
             return categories.Get(id);
         }
+
+        public HttpResponseMessage Post([FromBody] Category category)
+        {
+            var ctx = new FandHContext();
+            ctx.Configuration.AutoDetectChangesEnabled = false;
+            ctx.Configuration.ValidateOnSaveEnabled = false;
+
+            ctx.Categories.Add(category);
+            if (ctx.SaveChanges() != 0)
+            {
+                return new HttpResponseMessage(HttpStatusCode.Created);
+            }
+
+            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+        }
     }
 }

@@ -22,5 +22,20 @@ namespace FitAndHealthyAPI.Controllers
             return exercises.Get(id);
         }
 
+        public HttpResponseMessage Post([FromBody] Exercise exercise)
+        {
+            var ctx = new FandHContext();
+            ctx.Configuration.AutoDetectChangesEnabled = false;
+            ctx.Configuration.ValidateOnSaveEnabled = false;
+
+            ctx.Exercises.Add(exercise);
+            if (ctx.SaveChanges() != 0)
+            {
+                return new HttpResponseMessage(HttpStatusCode.Created);
+            }
+
+            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+        }
+
     }
 }
