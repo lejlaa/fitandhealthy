@@ -36,5 +36,20 @@ namespace FitAndHealthyAPI.Controllers
 
             return new HttpResponseMessage(HttpStatusCode.BadRequest);
         }
+
+        public Role Delete(int id)
+        {
+            var ctx = new FandHContext();
+            ctx.Configuration.AutoDetectChangesEnabled = false;
+            ctx.Configuration.ValidateOnSaveEnabled = false;
+            Role role = ctx.Roles.SingleOrDefault(x => x.Id == id);
+            ctx.Roles.Remove(role);
+
+            ctx.SaveChanges();
+
+            return role;
+
+
+        }
     }
 }

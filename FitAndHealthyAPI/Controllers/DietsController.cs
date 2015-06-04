@@ -37,5 +37,20 @@ namespace FitAndHealthyAPI.Controllers
 
             return new HttpResponseMessage(HttpStatusCode.BadRequest);
         }
+
+        public Diet Delete(int id)
+        {
+            var ctx = new FandHContext();
+            ctx.Configuration.AutoDetectChangesEnabled = false;
+            ctx.Configuration.ValidateOnSaveEnabled = false;
+            Diet diet = ctx.Diets.SingleOrDefault(x => x.Id == id);
+            ctx.Diets.Remove(diet);
+
+            ctx.SaveChanges();
+
+            return diet;
+
+
+        }
     }
 }

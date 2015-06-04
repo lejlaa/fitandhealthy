@@ -42,5 +42,24 @@ namespace FitAndHealthyAPI.Controllers
             baseInterface<User> users = new baseRepository<User>(new FandHContext());
             return users.Get(id);
         }
+
+        public User Delete(int id)
+        {
+            var ctx = new FandHContext();
+            ctx.Configuration.AutoDetectChangesEnabled = false;
+            ctx.Configuration.ValidateOnSaveEnabled = false;
+            User user = ctx.Users.SingleOrDefault(x => x.Id == id);
+            if (user == null)
+            {
+                return null;
+            }
+            ctx.Users.Remove(user);
+
+            ctx.SaveChanges();
+
+            return user;
+
+
+        }
     }
 }
