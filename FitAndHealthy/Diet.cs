@@ -19,7 +19,6 @@ namespace FitAndHealthy
         public string Description { get; set; }
         public int Rating { get; set; }
         public int RatedByNo { get; set; }
-
         public virtual ICollection <Program> Programs { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
 

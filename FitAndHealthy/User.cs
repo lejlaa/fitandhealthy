@@ -21,7 +21,6 @@ namespace FitAndHealthy
         public string Banned { get; set;  }
 
         public virtual ICollection<Role> Roles { get; set; }
-
         public virtual ICollection<Program> Programs { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Program> UserPrograms { get; set; }

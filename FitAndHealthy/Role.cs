@@ -16,8 +16,7 @@ namespace FitAndHealthy
         public string Name { get; set; }
 
         public virtual ICollection<Action> Actions { get; set; }
-        public virtual ICollection<User> Users { get; set; }
-
+        //public virtual ICollection<User> Users { get; set; }
 
     }
 }
