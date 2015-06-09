@@ -8,6 +8,12 @@ namespace FitAndHealthyAPI.Models
 {
     public class ModelFactory
     {
+        private FandHContext ctx;
+
+        public ModelFactory(FandHContext ctx)
+        {
+            this.ctx = ctx;
+        }
         public ActionModel Create(FitAndHealthy.Action action)
         {
             return new ActionModel
@@ -15,7 +21,7 @@ namespace FitAndHealthyAPI.Models
                 Id = action.Id,
                 Name = action.Name,
                 Description = action.Description,
-                Roles = action.Roles.Select(x => Create(x,false)).ToList()
+                Roles = action.Roles.Select(x => Create(x)).ToList()
             };
         }
         public FitAndHealthy.Action Parse(ActionModel action)
@@ -27,13 +33,13 @@ namespace FitAndHealthyAPI.Models
                 Description = action.Description
             };
         }
-        public RoleModel Create(Role role, bool withActions)
+        public RoleModel Create(Role role)
         {
             return new RoleModel
             {
                 Id = role.Id,
                 Name = role.Name,
-                Actions = (withActions) ? role.Actions.Select(x => Create(x)).ToList() : null
+                Actions = role.Actions.Select(x => Create(x)).ToList()
             };
         }
 
@@ -130,6 +136,69 @@ namespace FitAndHealthyAPI.Models
                     Diet = ctx.Diets.Find(program.DietId)
                 };
             }
+        }
+
+        public ExerciseModel Create(Exercise exercise)
+        {
+            return new ExerciseModel
+            {
+                Id = exercise.Id,
+                Name = exercise.Name,
+                RatedByNo = exercise.RatedByNo,
+                Rating = exercise.Rating,
+                Video = exercise.Video,
+                Image = exercise.Image,
+                Duration = exercise.Duration,
+                Trainings = exercise.Trainings.Select(x => Create(x)).ToList(),
+                Comments = exercise.Comments.Select(x => Create(x)).ToList(),
+                Categories = exercise.Categories.Select(x => Create(x)).ToList()
+            };
+        }
+        public Exercise Parse(ExerciseModel exercise)
+        {
+            return new Exercise
+            {
+                Id = exercise.Id,
+                Name = exercise.Name,
+                RatedByNo = exercise.RatedByNo,
+                Rating = exercise.Rating,
+                Video = exercise.Video,
+                Image = exercise.Image
+            };
+        }
+        public CommentModel Create(Comment comment)
+        {
+            return new CommentModel
+            {
+                Id = comment.Id,
+                CommentText = comment.CommentText,
+                RatedByNo = comment.RatedByNo,
+                Rating = comment.Rating,
+                User = comment.User.Username,
+                UserId = comment.User.Id,
+                Diet = comment.Diet.Name,
+                DietId = comment.Diet.Id,
+                Program = comment.Program.Name,
+                ProgramId = comment.Program.Id,
+                Training = comment.Training.Name,
+                TrainingId = comment.Training.Id,
+                Exercise = comment.Exercise.Name,
+                ExerciseId = comment.Exercise.Id
+            };
+        }
+        public UserModel Create(User user)
+        {
+            return new UserModel
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Password = user.Password,
+                Banned = user.Banned,
+                Roles = user.Roles.Select(x => Create(x)).ToList(),
+                Comments = user.Comments.Select(x => Create(x)).ToList(),
+                Programs = user.Programs.Select(x => Create(x)).ToList(),
+                UserPrograms = user.UserPrograms.Select(x => Create(x)).ToList()
+            };
         }
     }
 }

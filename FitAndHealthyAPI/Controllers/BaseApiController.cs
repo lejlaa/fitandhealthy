@@ -4,13 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
-/*
+using FitAndHealthy;
 using FitAndHealthyAPI.Models;
 
 namespace FitAndHealthyAPI.Controllers
 {
-    public class BaseApiController : ApiController
+    public class BaseApiController<T> : ApiController
     {
         private baseInterface<T> depo;
         private ModelFactory fact;
@@ -36,5 +35,3 @@ namespace FitAndHealthyAPI.Controllers
         }
     }
 }
-
-*/
