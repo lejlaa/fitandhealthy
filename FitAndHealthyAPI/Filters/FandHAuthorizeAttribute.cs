@@ -32,7 +32,7 @@ namespace FitAndHealthyAPI.Filters
                     {
                         WebSecurity.InitializeDatabaseConnection("FandHContext", "Users", "Id", "Username", autoCreateTables: true);
 
-                       // WebSecurity.CreateUserAndAccount("berka", "berka", new { Password = "berka", Banned = "false" }, false);
+                        //WebSecurity.CreateUserAndAccount("lejla", "lejla", new { Password = "lejla", Banned = "false" }, false);
                     }
                     if (WebSecurity.Login(username, password)) { 
                         var principal = new GenericPrincipal(new GenericIdentity(username), null);
