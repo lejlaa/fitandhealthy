@@ -20,9 +20,9 @@ namespace FitAndHealthyAPI.Controllers
             this.depo = depo;
         }
 
-        protected baseInterface<T> fandhDepo { get { return depo; } }
+        protected baseInterface<T> timeDepo { get { return depo; } }
 
-        protected ModelFactory fandhFact
+        protected ModelFactory timeFact
         {
             get
             {

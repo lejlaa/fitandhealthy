@@ -13,7 +13,7 @@ namespace FitAndHealthy
         void Delete(T entity);
         void Update(T oldEntity, T newEntity);
         T Get(int Id);
-        IQueryable<T> GetAll();
+        IQueryable<T> Get();
         void Commit();
     }
 
