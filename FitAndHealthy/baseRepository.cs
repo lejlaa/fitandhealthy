@@ -11,6 +11,7 @@ namespace FitAndHealthy
     {
         protected FandHContext ctx;
         protected DbSet<T> dbSet;
+
         public baseRepository(FandHContext dCon)
         {
             ctx = dCon;
@@ -24,7 +25,7 @@ namespace FitAndHealthy
         {
             return dbSet.Find(Id);
         }
-        public IQueryable<T> Get()
+        public IQueryable<T> GetAll()
         {
             return dbSet;
         }

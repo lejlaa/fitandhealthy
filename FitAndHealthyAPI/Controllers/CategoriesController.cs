@@ -5,52 +5,87 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;  
+using FitAndHealthyAPI.Models;
+using FitAndHealthyAPI.Filters;
 
 namespace FitAndHealthyAPI.Controllers
 {
-    public class CategoriesController : ApiController
+    public class CategoriesController : BaseApiController<Category>
     {
-        public List<Category> Get()
+        public List<CategoryModel> Get()
         {
-            baseInterface<Category> categories = new baseRepository<Category>(new FandHContext());
-            return categories.Get().ToList();
+            IQueryable<Category> categories = fandhDepo.GetAll();
+            return categories.ToList().Select(x => fandhFact.Create(x)).ToList();
         }
 
-        public Category Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            baseInterface<Category> categories = new baseRepository<Category>(new FandHContext());
-            return categories.Get(id);
-        }
-
-        public HttpResponseMessage Post([FromBody] Category category)
-        {
-            var ctx = new FandHContext();
-            ctx.Configuration.AutoDetectChangesEnabled = false;
-            ctx.Configuration.ValidateOnSaveEnabled = false;
-
-            ctx.Categories.Add(category);
-            if (ctx.SaveChanges() != 0)
+            try
             {
-                return new HttpResponseMessage(HttpStatusCode.Created);
+                Category category = fandhDepo.Get(id);
+                if (category != null)
+                    return Request.CreateResponse(HttpStatusCode.OK, fandhFact.Create(category));
+                else
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
             }
-
-            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
         }
 
-        public Category Delete(int id)
+        public HttpResponseMessage Post(CategoryModel categoryModel)
         {
-            var ctx = new FandHContext();
-            ctx.Configuration.AutoDetectChangesEnabled = false;
-            ctx.Configuration.ValidateOnSaveEnabled = false;
-           Category categorie = ctx.Categories.SingleOrDefault(x => x.Id == id);
-            ctx.Categories.Remove(categorie);
-
-            ctx.SaveChanges();
-
-            return categorie;
-
-
+            try
+            {
+                Category category = fandhFact.Parse(categoryModel);
+                if (category == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                fandhDepo.Insert(category);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
+
+        [DisableCors()]
+        public HttpResponseMessage Delete(int id)
+        {
+            try
+            {
+                Category category = fandhDepo.Get(id);
+                if (category == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                fandhDepo.Insert(category);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+        /*
+        public HttpResponseMessage Put(ProjectModel projectModel)
+        {
+            try
+            {
+                Project project = timeFact.Parse(projectModel);
+                if (project == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                timeDepo.Update(project, project.Id);
+                timeDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }*/
     }
 }
