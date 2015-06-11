@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FitAndHealthy.Mappers
 {
-    class UserMap: EntityTypeConfiguration<User>
+    class UserMap : EntityTypeConfiguration<User>
     {
         public UserMap()
         {
@@ -17,6 +17,9 @@ namespace FitAndHealthy.Mappers
             this.Property(p => p.Username).HasColumnName("Username").IsRequired().HasMaxLength(40);
             this.Property(p => p.Banned).HasColumnName("Banned").IsRequired();
             this.Property(p => p.Password).HasColumnName("Password").IsRequired();
+            this.Property(p => p.ConfirmationToken).HasColumnName("ConfirmationToken").IsRequired();
+            this.Property(p => p.ConfirmedUser).HasColumnName("ConfirmedUser").IsRequired();
+
 
         }
     }

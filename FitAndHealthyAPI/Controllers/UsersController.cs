@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 
 namespace FitAndHealthyAPI.Controllers
@@ -21,6 +22,12 @@ namespace FitAndHealthyAPI.Controllers
         }
         public HttpResponseMessage Post([FromBody] User user)
         {
+            Random rnd = new Random();
+            string strToken = rnd.Next(99999999).ToString();
+            var rawToken = Encoding.UTF8.GetBytes(strToken);
+
+            string token = Convert.ToBase64String(rawToken);
+            //string token = generateToken();
             var ctx = new FandHContext();
             ctx.Configuration.AutoDetectChangesEnabled = false;
             ctx.Configuration.ValidateOnSaveEnabled = false;
@@ -28,8 +35,11 @@ namespace FitAndHealthyAPI.Controllers
 
             user.Roles = new List<Role>();
             user.Banned = "false";
+            user.ConfirmationToken = token; ;
+            user.ConfirmedUser = " ";
+
             ctx.Users.Add(user);
-            if (ctx.SaveChanges() !=0)
+            if (ctx.SaveChanges() != 0)
             {
                 return new HttpResponseMessage(HttpStatusCode.Created);
             }
