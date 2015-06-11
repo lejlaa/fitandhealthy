@@ -5,51 +5,83 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using FitAndHealthyAPI.Models;
 
 namespace FitAndHealthyAPI.Controllers
 {
-    public class CommentsController : ApiController
+    public class CommentsController : BaseApiController<Comment>
     {
-        public List<Comment> Get()
+        public CommentsController(baseInterface<Comment> depo) : base(depo) { }
+
+        public List<CommentModel> Get()
         {
-            baseInterface<Comment> comments = new baseRepository<Comment>(new FandHContext());
-            return comments.Get().ToList();
+            return fandhDepo.GetAll().ToList().Select(x => fandhFact.Create(x)).ToList();
         }
-
-        public Comment Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            baseInterface<Comment> comments = new baseRepository<Comment>(new FandHContext());
-            return comments.Get(id);
-        }
-
-        public HttpResponseMessage Post([FromBody] Comment comment)
-        {
-            var ctx = new FandHContext();
-            ctx.Configuration.AutoDetectChangesEnabled = false;
-            ctx.Configuration.ValidateOnSaveEnabled = false;
-
-            ctx.Comments.Add(comment);
-            if (ctx.SaveChanges() != 0)
+            try
             {
-                return new HttpResponseMessage(HttpStatusCode.Created);
+                Comment comment = fandhDepo.Get(id);
+                if (comment != null)
+                    return Request.CreateResponse(HttpStatusCode.OK, fandhFact.Create(comment));
+                else
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
             }
-
-            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+        public HttpResponseMessage Post(CommentModel commentModel)
+        {
+            try
+            {
+                Comment comment = fandhFact.Parse(commentModel);
+                if (comment == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                fandhDepo.Insert(comment);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
-        public Comment Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
-            var ctx = new FandHContext();
-            ctx.Configuration.AutoDetectChangesEnabled = false;
-            ctx.Configuration.ValidateOnSaveEnabled = false;
-            Comment comment = ctx.Comments.SingleOrDefault(x => x.Id == id);
-            ctx.Comments.Remove(comment);
+            try
+            {
+                Comment comment = fandhDepo.Get(id);
+                if (comment == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                fandhDepo.Insert(comment);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
 
-            ctx.SaveChanges();
-
-            return comment;
-
-
+        public HttpResponseMessage Put(CommentModel commentModel, int id)
+        {
+            try
+            {
+                Comment newComment = fandhFact.Parse(commentModel);
+                if (newComment == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                Comment oldComment = fandhDepo.Get(id);
+                fandhDepo.Update(oldComment, newComment);                
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
     }
 }

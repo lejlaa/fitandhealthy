@@ -5,51 +5,84 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using FitAndHealthy;
+using FitAndHealthyAPI.Models;
 
 namespace FitAndHealthyAPI.Controllers
 {
-    public class RolesController : ApiController
+    public class RolesController : BaseApiController<Role>
     {
-        public List<Role> Get()
+
+        public RolesController(baseInterface<Role> depo) : base(depo) { }
+
+        public List<RoleModel> Get()
         {
-            baseInterface<Role> roles = new baseRepository<Role>(new FandHContext());
-            return roles.Get().ToList();
+            return fandhDepo.GetAll().ToList().Select(x => fandhFact.Create(x)).ToList();
         }
-
-        public Role Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            baseInterface<Role> roles = new baseRepository<Role>(new FandHContext());
-            return roles.Get(id);
-        }
-
-        public HttpResponseMessage Post([FromBody] Role role)
-        {
-            var ctx = new FandHContext();
-            ctx.Configuration.AutoDetectChangesEnabled = false;
-            ctx.Configuration.ValidateOnSaveEnabled = false;
-
-            ctx.Roles.Add(role);
-            if (ctx.SaveChanges() != 0)
+            try
             {
-                return new HttpResponseMessage(HttpStatusCode.Created);
+                Role role = fandhDepo.Get(id);
+                if (role != null)
+                    return Request.CreateResponse(HttpStatusCode.OK, fandhFact.Create(role));
+                else
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
             }
-
-            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+        public HttpResponseMessage Post(RoleModel roleModel)
+        {
+            try
+            {
+                Role role = fandhFact.Parse(roleModel);
+                if (role == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                fandhDepo.Insert(role);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
-        public Role Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
-            var ctx = new FandHContext();
-            ctx.Configuration.AutoDetectChangesEnabled = false;
-            ctx.Configuration.ValidateOnSaveEnabled = false;
-            Role role = ctx.Roles.SingleOrDefault(x => x.Id == id);
-            ctx.Roles.Remove(role);
+            try
+            {
+                Role role = fandhDepo.Get(id);
+                if (role == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                fandhDepo.Insert(role);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
 
-            ctx.SaveChanges();
-
-            return role;
-
-
+        public HttpResponseMessage Put(RoleModel roleModel, int id)
+        {
+            try
+            {
+                Role newRole = fandhFact.Parse(roleModel);
+                if (newRole == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                Role oldRole = fandhDepo.Get(id);
+                fandhDepo.Update(oldRole, newRole);                
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
     }
 }

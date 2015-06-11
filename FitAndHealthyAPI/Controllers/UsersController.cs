@@ -16,9 +16,7 @@ namespace FitAndHealthyAPI.Controllers
         {
             baseInterface<User> users = new baseRepository<User>(new FandHContext());
 
-            List<User> allUsers = users.Get().ToList();
-
-            
+            List<User> allUsers = users.GetAll().ToList();            
             return allUsers;
         }
         public HttpResponseMessage Post([FromBody] User user)

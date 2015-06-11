@@ -5,51 +5,83 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using FitAndHealthyAPI.Models;
 
 namespace FitAndHealthyAPI.Controllers
 {
-    public class ExercisesController : ApiController
+    public class ExercisesController : BaseApiController<Exercise>
     {
-        public List<Exercise> Get()
+        public ExercisesController(baseInterface<Exercise> depo) : base(depo) { }
+
+        public List<ExerciseModel> Get()
         {
-            baseInterface<Exercise> exercises = new baseRepository<Exercise>(new FandHContext());
-            return exercises.Get().ToList();
+            return fandhDepo.GetAll().ToList().Select(x => fandhFact.Create(x)).ToList();
         }
-
-        public Exercise Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            baseInterface<Exercise> exercises = new baseRepository<Exercise>(new FandHContext());
-            return exercises.Get(id);
-        }
-
-        public HttpResponseMessage Post([FromBody] Exercise exercise)
-        {
-            var ctx = new FandHContext();
-            ctx.Configuration.AutoDetectChangesEnabled = false;
-            ctx.Configuration.ValidateOnSaveEnabled = false;
-
-            ctx.Exercises.Add(exercise);
-            if (ctx.SaveChanges() != 0)
+            try
             {
-                return new HttpResponseMessage(HttpStatusCode.Created);
+                Exercise exercise = fandhDepo.Get(id);
+                if (exercise != null)
+                    return Request.CreateResponse(HttpStatusCode.OK, fandhFact.Create(exercise));
+                else
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
             }
-
-            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+        public HttpResponseMessage Post(ExerciseModel exerciseModel)
+        {
+            try
+            {
+                Exercise exercise = fandhFact.Parse(exerciseModel);
+                if (exercise == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                fandhDepo.Insert(exercise);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
-        public Exercise Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
-            var ctx = new FandHContext();
-            ctx.Configuration.AutoDetectChangesEnabled = false;
-            ctx.Configuration.ValidateOnSaveEnabled = false;
-            Exercise exercise = ctx.Exercises.SingleOrDefault(x => x.Id == id);
-            ctx.Exercises.Remove(exercise);
+            try
+            {
+                Exercise exercise = fandhDepo.Get(id);
+                if (exercise == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                fandhDepo.Insert(exercise);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
 
-            ctx.SaveChanges();
-
-            return exercise;
-
-
+        public HttpResponseMessage Put(ExerciseModel exerciseModel, int id)
+        {
+            try
+            {
+                Exercise newExercise = fandhFact.Parse(exerciseModel);
+                if (newExercise == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                Exercise oldExercise = fandhDepo.Get(id);
+                fandhDepo.Update(oldExercise, newExercise);                
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
     }

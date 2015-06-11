@@ -186,6 +186,20 @@ namespace FitAndHealthyAPI.Models
                 ExerciseId = comment.Exercise.Id
             };
         }
+        public Comment Parse(CommentModel comment)
+        {
+            return new Comment{
+                Id = comment.Id,
+                CommentText = comment.CommentText,
+                RatedByNo = comment.RatedByNo,
+                Rating = comment.Rating,
+                User = ctx.Users.Find(comment.UserId),
+                Diet = ctx.Diets.Find(comment.DietId),
+                Program = ctx.Programs.Find(comment.ProgramId),
+                Training = ctx.Trainings.Find(comment.TrainingId),
+                Exercise = ctx.Exercises.Find(comment.ExerciseId)
+            };
+        }
         public UserModel Create(User user)
         {
             return new UserModel
@@ -198,6 +212,40 @@ namespace FitAndHealthyAPI.Models
                 Comments = user.Comments.Select(x => Create(x)).ToList(),
                 Programs = user.Programs.Select(x => Create(x)).ToList(),
                 UserPrograms = user.UserPrograms.Select(x => Create(x)).ToList()
+            };
+        }
+        public User Parse(UserModel user)
+        {
+            return new User
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Password = user.Password,
+                Banned = user.Banned
+            };
+        }
+        public DietModel Create(Diet diet)
+        {
+            return new DietModel
+            {
+                Id = diet.Id,
+                Name = diet.Name,
+                Description = diet.Description,
+                RatedByNo = diet.RatedByNo,
+                Rating = diet.Rating,
+                Comments = diet.Comments.Select(x => Create(x)).ToList(),
+                Programs = diet.Programs.Select(x => Create(x)).ToList()
+            };
+        }
+        public Diet Parse(DietModel diet)
+        {
+            return new Diet
+            {
+                Id = diet.Id,
+                Name = diet.Name,
+                Description = diet.Description,
+                RatedByNo = diet.RatedByNo,
+                Rating = diet.Rating
             };
         }
     }

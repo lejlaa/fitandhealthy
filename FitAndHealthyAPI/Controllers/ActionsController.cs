@@ -5,53 +5,85 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using FitAndHealthy;
+using FitAndHealthyAPI.Models;
 
 namespace FitAndHealthyAPI.Controllers
 {
-    public class ActionsController : ApiController
+    public class ActionsController : BaseApiController<FitAndHealthy.Action>
     {
-        public List<FitAndHealthy.Action> Get()
+        public ActionsController(baseInterface<FitAndHealthy.Action> depo) : base(depo) { }
+
+        public List<ActionModel> Get()
         {
-            baseInterface<FitAndHealthy.Action> actions = new baseRepository<FitAndHealthy.Action>(new FandHContext());
-            return actions.Get().ToList();
+            return fandhDepo.GetAll().ToList().Select(x => fandhFact.Create(x)).ToList();
         }
 
-        public FitAndHealthy.Action Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            baseInterface<FitAndHealthy.Action> actions = new baseRepository<FitAndHealthy.Action>(new FandHContext());
-            return actions.Get(id);
-        }
-
-        public HttpResponseMessage Post([FromBody] FitAndHealthy.Action action)
-        {
-            var ctx = new FandHContext();
-            ctx.Configuration.AutoDetectChangesEnabled = false;
-            ctx.Configuration.ValidateOnSaveEnabled = false;
-
-            ctx.Actions.Add(action);
-            if (ctx.SaveChanges() != 0)
+            try
             {
-                return new HttpResponseMessage(HttpStatusCode.Created);
+                FitAndHealthy.Action action = fandhDepo.Get(id);
+                if (action != null)
+                    return Request.CreateResponse(HttpStatusCode.OK, fandhFact.Create(action));
+                else
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
             }
-
-            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
         }
 
-        public  FitAndHealthy.Action Delete(int id)
-
-
+        public HttpResponseMessage Post(ActionModel actionModel)
         {
-            var ctx = new FandHContext();
-            ctx.Configuration.AutoDetectChangesEnabled = false;
-            ctx.Configuration.ValidateOnSaveEnabled = false;
-            FitAndHealthy.Action action = ctx.Actions.SingleOrDefault(x => x.Id== id);
-            ctx.Actions.Remove(action);
+            try
+            {
+                FitAndHealthy.Action action = fandhFact.Parse(actionModel);
+                if (action == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                fandhDepo.Insert(action);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
 
-            ctx.SaveChanges();
+        public HttpResponseMessage Delete(int id)
+        {
+            try
+            {
+                FitAndHealthy.Action action = fandhDepo.Get(id);
+                if (action == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                fandhDepo.Insert(action);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
 
-            return action;
-
-                     
+        public HttpResponseMessage Put(ActionModel actionModel, int id)
+        {
+            try
+            {
+                FitAndHealthy.Action newAction = fandhFact.Parse(actionModel);
+                if (newAction == null)
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                FitAndHealthy.Action oldAction = fandhDepo.Get(id);
+                fandhDepo.Update(oldAction, newAction);
+                fandhDepo.Commit();
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
     }
 }

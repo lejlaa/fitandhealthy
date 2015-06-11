@@ -24,7 +24,7 @@ namespace FitAndHealthy
         {
             return dbSet.Find(Id);
         }
-        public IQueryable<T> Get()
+        public IQueryable<T> GetAll()
         {
             return dbSet;
         }
