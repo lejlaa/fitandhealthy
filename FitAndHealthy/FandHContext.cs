@@ -12,7 +12,7 @@ namespace FitAndHealthy
     {
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<Diet> Diets { get; set; }
-        public DbSet<Action> Actions { get; set; }
+        //public DbSet<Action> Actions { get; set; }
         public DbSet<Program> Programs { get; set; }         
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
@@ -34,7 +34,6 @@ namespace FitAndHealthy
         {
             modelBuilder.Configurations.Add(new ExerciseMap()); 
             modelBuilder.Configurations.Add(new DietMap()); 
-            modelBuilder.Configurations.Add(new ActionMap()); 
             modelBuilder.Configurations.Add(new ProgramMap()); 
             modelBuilder.Configurations.Add(new RoleMap()); 
             modelBuilder.Configurations.Add(new UserMap());

@@ -14,32 +14,12 @@ namespace FitAndHealthyAPI.Models
         {
             this.ctx = ctx;
         }
-        public ActionModel Create(FitAndHealthy.Action action)
-        {
-            return new ActionModel
-            {
-                Id = action.Id,
-                Name = action.Name,
-                Description = action.Description,
-                Roles = action.Roles.Select(x => Create(x)).ToList()
-            };
-        }
-        public FitAndHealthy.Action Parse(ActionModel action)
-        {
-            return new FitAndHealthy.Action
-            {
-                Id = action.Id,
-                Name = action.Name,
-                Description = action.Description
-            };
-        }
         public RoleModel Create(Role role)
         {
             return new RoleModel
             {
                 Id = role.Id,
-                Name = role.Name,
-                Actions = role.Actions.Select(x => Create(x)).ToList()
+                Name = role.Name
             };
         }
 
@@ -104,6 +84,7 @@ namespace FitAndHealthyAPI.Models
                 Id = program.Id,
                 Name = program.Name,
                 Description = program.Description,
+                /*
                 Duration = program.Duration,
                 RatedByNo = program.RatedByNo,
                 Rating = program.Rating,
@@ -112,10 +93,16 @@ namespace FitAndHealthyAPI.Models
                 AuthorId = program.Author.Id,
                 Diet = program.Diet.Name,
                 DietId = program.Diet.Id,
-                Categories = program.Categories.Select(x => Create(x)).ToList(),
-                Comments = program.Comments.Select(x => Create(x)).ToList(),
-                Trainings = program.Trainings.Select(x => Create(x)).ToList(),
-                Users = program.Users.Select(x => Create(x)).ToList()
+                Categories = new List<CategoryModel>(),
+                Comments = new List<CommentModel>(),
+                Trainings = new List<TrainingModel>(),
+                Users = new List<UserModel>()
+                */
+                
+                //Categories = program.Categories.Select(x => Create(x)).ToList(),
+                //Comments = program.Comments.Select(x => Create(x)).ToList(),
+                //Trainings = program.Trainings.Select(x => Create(x)).ToList(),
+                //Users = program.Users.Select(x => Create(x)).ToList()
             };
         }
         public Program Parse(ProgramModel program)

@@ -48,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Action.cs" />
     <Compile Include="baseInterface.cs" />
     <Compile Include="baseRepository.cs" />
     <Compile Include="Category.cs" />
@@ -57,7 +56,6 @@
     <Compile Include="Exercise.cs" />
     <Compile Include="FandHContext.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="Mappers\ActionMap.cs" />
     <Compile Include="Mappers\CategoryMap.cs" />
     <Compile Include="Mappers\CommentMap.cs" />
     <Compile Include="Mappers\DietMap.cs" />
@@ -75,7 +73,9 @@
     <Compile Include="UserProgram.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

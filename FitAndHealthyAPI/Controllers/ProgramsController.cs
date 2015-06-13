@@ -40,6 +40,12 @@ namespace FitAndHealthyAPI.Controllers
                 Program program = fandhFact.Parse(programModel);
                 if (program == null)
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
+                
+                program.Categories = new List<Category>();
+                program.Comments = new List<Comment>();
+                program.Trainings = new List<Training>();
+                program.Users = new List<User>();
+
                 fandhDepo.Insert(program);
                 fandhDepo.Commit();
                 return Request.CreateResponse(HttpStatusCode.OK);

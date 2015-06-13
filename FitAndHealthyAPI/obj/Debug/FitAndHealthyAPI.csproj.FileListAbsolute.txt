@@ -219,3 +219,11 @@ C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\WebMatrix.Dat
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\WebMatrix.WebData.dll
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\WebMatrix.Data.xml
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\WebMatrix.WebData.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Common.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Mvc.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\WebActivatorEx.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Common.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Mvc.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\WebApiContrib.IoC.Ninject.dll

@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace FitAndHealthyAPI.Controllers
 {  
     
-    [FitAndHealthyAPI.Filters.FandHAuthorize]
+    //[FitAndHealthyAPI.Filters.FandHAuthorize]
     public class UsersController : ApiController
     {
         public List<User> Get()

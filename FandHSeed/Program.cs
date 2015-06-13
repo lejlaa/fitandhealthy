@@ -31,7 +31,6 @@ namespace FandHSeed
         }
 
 
-
         static void getData()
         {
             using (var ctx = new FandHContext())
@@ -42,6 +41,7 @@ namespace FandHSeed
                 Role r1 = new Role();
                 r1.Name = "Admin";
                 ctx.Roles.Add(r1);
+                
 
                 Role r2 = new Role();
                 r2.Name = "User";
@@ -54,34 +54,28 @@ namespace FandHSeed
                 user1.Roles.Add(r1);
                 user1.Roles.Add(r2);
                 user1.Banned = "false";
+                user1.ConfirmationToken = "";
+                user1.ConfirmedUser = "";
+                user1.Comments = new List<Comment>();
                 ctx.Users.Add(user1);
-
-                //User user2 = new User();
-                //user2.Username = "nedim";
-                //user2.Password = "nedim";
-                //user2.Roles.Add(r1);
-                //user2.Roles.Add(r2);
-                //user2.Banned = "false";
-                //ctx.Users.Add(user2);
 
                 User user3 = new User();
                 user3.Username = "berina";
                 user3.Password = "berina";
                 user3.Roles.Add(r2);
                 user3.Banned = "false";
+                user3.ConfirmationToken = "";
+                user3.ConfirmedUser = "";
+                user3.Comments = new List<Comment>();
                 ctx.Users.Add(user3);
-
-
-                FitAndHealthy.Action action1 = new FitAndHealthy.Action();
-                action1.Name = "This is my action";
-                action1.Description = "Description";
-                ctx.Actions.Add(action1);
-
-                r1.Actions.Add(action1);
 
                 Diet someDiet = new Diet();
                 someDiet.Name = "SomeDiet";
                 someDiet.Description = "fakifakfhadhfsdjfh";
+                someDiet.Comments = new List<Comment>();
+                someDiet.Programs = new List<FitAndHealthy.Program>();
+                someDiet.RatedByNo = 4;
+                someDiet.Rating = 20;
                 ctx.Diets.Add(someDiet);
 
                 FitAndHealthy.Program pr1 = new FitAndHealthy.Program();
@@ -89,6 +83,14 @@ namespace FandHSeed
                 pr1.Description = "blabla";
                 pr1.Author = user1;
                 pr1.Diet = someDiet;
+                pr1.Categories = new List<Category>();
+                pr1.Comments = new List<Comment>();
+                pr1.Duration = 60;
+                pr1.RatedByNo = 4;
+                pr1.Rating = 20;
+                pr1.Trainings = new List<Training>();
+                pr1.Users = new List<User>();
+                pr1.VideoLink = "http//:";
                 ctx.Programs.Add(pr1);
 
                 FitAndHealthy.Program pr2 = new FitAndHealthy.Program();
@@ -96,6 +98,14 @@ namespace FandHSeed
                 pr2.Description = "blablabla";
                 pr2.Author = user3;
                 pr2.Diet = someDiet;
+                pr2.Categories = new List<Category>();
+                pr2.Comments = new List<Comment>();
+                pr2.Duration = 60;
+                pr2.RatedByNo = 4;
+                pr2.Rating = 20;
+                pr2.Trainings = new List<Training>();
+                pr2.Users = new List<User>();
+                pr2.VideoLink = "http//:";
                 ctx.Programs.Add(pr2);
 
                 ctx.SaveChanges();
