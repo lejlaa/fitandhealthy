@@ -21,6 +21,7 @@ namespace FitAndHealthy
         public string Banned { get; set; }
         public string ConfirmationToken { get; set; }
         public string ConfirmedUser { get; set; }
+        public string Email { get; set; }
 
         public virtual ICollection<Role> Roles { get; set; }
         public virtual ICollection<Program> Programs { get; set; }

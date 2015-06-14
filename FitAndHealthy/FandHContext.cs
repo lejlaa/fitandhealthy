@@ -23,8 +23,8 @@ namespace FitAndHealthy
         public FandHContext() : base()
         {
 
-            //Database.SetInitializer<FandHContext>(new CreateDatabaseIfNotExists<FandHContext>());
-            Database.SetInitializer<FandHContext>(new DropCreateDatabaseIfModelChanges<FandHContext>());
+            Database.SetInitializer<FandHContext>(new CreateDatabaseIfNotExists<FandHContext>());
+            //Database.SetInitializer<FandHContext>(new DropCreateDatabaseIfModelChanges<FandHContext>());
             //Database.SetInitializer<FandHContext>(new DropCreateDatabaseAlways<FandHContext>());
             //Database.SetInitializer<FandHContext>(new FandHDbInitializer());
             //Database.SetInitializer<FandHContext>(null);

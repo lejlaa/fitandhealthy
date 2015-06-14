@@ -42,17 +42,18 @@ namespace FitAndHealthyAPI.Controllers
             user.Banned = "false";
             user.ConfirmationToken = token; ;
             user.ConfirmedUser = " ";
-
+            
+           
             WebSecurity.InitializeDatabaseConnection("FandHContext", "Users", "Id", "Username", autoCreateTables: true);
 
 
            // ctx.Users.Add(user);
-            WebSecurity.CreateUserAndAccount(user.Username, user.Password, new { Password = "", Banned = "false", ConfirmationToken = token, ConfirmedUser = "true" }, false);//ctx.SaveChanges() != 0)
+            WebSecurity.CreateUserAndAccount(user.Username, user.Password, new { Password = "", Banned = "false", ConfirmationToken = token, ConfirmedUser = "false", user.Email }, false);//ctx.SaveChanges() != 0)
            // {
 
                 MailMessage mail = new MailMessage();
-                mail.To.Add("probnimail00@gmail.com");
-                mail.From = new MailAddress("nemopolar@gmail.com");
+                mail.To.Add(user.Email);
+                mail.From = new MailAddress("probnimail00@gmail.com");
                 mail.Subject = "Email";
                 mail.IsBodyHtml = true;
 
@@ -66,7 +67,7 @@ namespace FitAndHealthyAPI.Controllers
 
                 SmtpClient sc = new SmtpClient("smtp.gmail.com", 587);
                 sc.UseDefaultCredentials = false;
-                sc.Credentials = new System.Net.NetworkCredential("bmuratovic1@gmail.com", "Dragonkhan00");//username doesn't include @gmail.com
+                sc.Credentials = new System.Net.NetworkCredential("probnimail00@gmail.com", "nwtprojekat");//username doesn't include @gmail.com
 
                 sc.EnableSsl = true;
 

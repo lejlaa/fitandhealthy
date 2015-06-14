@@ -57,6 +57,7 @@ namespace FandHSeed
                 user1.ConfirmationToken = "";
                 user1.ConfirmedUser = "";
                 user1.Comments = new List<Comment>();
+                user1.Email = "lela@hghgh.com";
                 ctx.Users.Add(user1);
 
                 User user3 = new User();
@@ -67,6 +68,10 @@ namespace FandHSeed
                 user3.ConfirmationToken = "";
                 user3.ConfirmedUser = "";
                 user3.Comments = new List<Comment>();
+                user3
+                    
+                    
+                    .Email = "berka@hghgh.com";
                 ctx.Users.Add(user3);
 
                 Diet someDiet = new Diet();
