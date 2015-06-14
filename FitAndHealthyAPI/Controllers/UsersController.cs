@@ -42,10 +42,11 @@ namespace FitAndHealthyAPI.Controllers
             user.Banned = "false";
             user.ConfirmationToken = token; ;
             user.ConfirmedUser = " ";
-            
-           
-            WebSecurity.InitializeDatabaseConnection("FandHContext", "Users", "Id", "Username", autoCreateTables: true);
 
+            if (!WebMatrix.WebData.WebSecurity.Initialized)
+            {
+                WebSecurity.InitializeDatabaseConnection("FandHContext", "Users", "Id", "Username", autoCreateTables: true);
+            }
 
            // ctx.Users.Add(user);
             WebSecurity.CreateUserAndAccount(user.Username, user.Password, new { Password = "", Banned = "false", ConfirmationToken = token, ConfirmedUser = "false", user.Email }, false);//ctx.SaveChanges() != 0)

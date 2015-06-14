@@ -7,7 +7,6 @@ C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\FitAndHealthy
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Microsoft.Data.Edm.dll
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Microsoft.Data.OData.dll
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Newtonsoft.Json.dll
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Spatial.dll
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Helpers.dll
@@ -259,3 +258,13 @@ C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Microsoft.
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Cors.dll
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.dll
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Microsoft.Web.Helpers.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Cors.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.WebHost.xml
