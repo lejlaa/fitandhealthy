@@ -227,3 +227,11 @@ C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.xml
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Common.xml
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Mvc.xml
 C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\WebApiContrib.IoC.Ninject.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Common.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Mvc.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\WebActivatorEx.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\WebApiContrib.IoC.Ninject.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.xml
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Common.xml
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Mvc.xml

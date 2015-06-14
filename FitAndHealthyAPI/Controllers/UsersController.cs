@@ -1,23 +1,26 @@
 ﻿using FitAndHealthy;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.Eventing;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Text;
 using System.Web.Http;
 
 namespace FitAndHealthyAPI.Controllers
-{  
-    
-    //[FitAndHealthyAPI.Filters.FandHAuthorize]
+{
+
+    [FitAndHealthyAPI.Filters.FandHAuthorize]
     public class UsersController : ApiController
     {
         public List<User> Get()
         {
             baseInterface<User> users = new baseRepository<User>(new FandHContext());
 
-            List<User> allUsers = users.GetAll().ToList();            
+            List<User> allUsers = users.GetAll().ToList();
             return allUsers;
         }
         public HttpResponseMessage Post([FromBody] User user)
@@ -41,12 +44,35 @@ namespace FitAndHealthyAPI.Controllers
             ctx.Users.Add(user);
             if (ctx.SaveChanges() != 0)
             {
+
+                MailMessage mail = new MailMessage();
+                mail.To.Add("probnimail00@gmail.com");
+                mail.From = new MailAddress("bmuratovic1@gmail.com");
+                mail.Subject = "Email";
+                mail.IsBodyHtml = true;
+
+                string body = "localhost:11330/api/confirmation/?Token=" + token;
+
+                //string body = "<html><body> Hello,";
+                //body += "<br />Please click the following link to activate your account <a href=\"" + link + "\"> Click on the link </a>";
+                //body += "<br /><br />Thanks</body></html>";
+                mail.Body = body;
+                mail.Priority = MailPriority.High;
+
+                SmtpClient sc = new SmtpClient("smtp.gmail.com", 587);
+                sc.UseDefaultCredentials = false;
+                sc.Credentials = new System.Net.NetworkCredential("bmuratovic1@gmail.com", "Dragonkhan00");//username doesn't include @gmail.com
+
+                sc.EnableSsl = true;
+
+                sc.Send(mail);
+                Console.WriteLine("-- Sending Email --");
                 return new HttpResponseMessage(HttpStatusCode.Created);
             }
 
             return new HttpResponseMessage(HttpStatusCode.BadRequest);
         }
-    
+
         public User Get(int id)
         {
             baseInterface<User> users = new baseRepository<User>(new FandHContext());
