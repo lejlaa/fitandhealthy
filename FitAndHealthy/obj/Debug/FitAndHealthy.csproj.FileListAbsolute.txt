@@ -25,6 +25,5 @@ D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.dll
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.SqlServer.dll
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.xml
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.SqlServer.xml
-D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.csprojResolveAssemblyReference.cache
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.dll
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.pdb

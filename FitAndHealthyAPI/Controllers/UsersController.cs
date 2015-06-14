@@ -9,13 +9,15 @@ using System.Net.Http;
 using System.Net.Mail;
 using System.Text;
 using System.Web.Http;
+using WebMatrix.WebData;
 
 namespace FitAndHealthyAPI.Controllers
 {
 
-    [FitAndHealthyAPI.Filters.FandHAuthorize]
+    
     public class UsersController : ApiController
     {
+        [FitAndHealthyAPI.Filters.FandHAuthorize]
         public List<User> Get()
         {
             baseInterface<User> users = new baseRepository<User>(new FandHContext());
@@ -41,13 +43,16 @@ namespace FitAndHealthyAPI.Controllers
             user.ConfirmationToken = token; ;
             user.ConfirmedUser = " ";
 
-            ctx.Users.Add(user);
-            if (ctx.SaveChanges() != 0)
-            {
+            WebSecurity.InitializeDatabaseConnection("FandHContext", "Users", "Id", "Username", autoCreateTables: true);
+
+
+           // ctx.Users.Add(user);
+            WebSecurity.CreateUserAndAccount(user.Username, user.Password, new { Password = "", Banned = "false", ConfirmationToken = token, ConfirmedUser = "true" }, false);//ctx.SaveChanges() != 0)
+           // {
 
                 MailMessage mail = new MailMessage();
                 mail.To.Add("probnimail00@gmail.com");
-                mail.From = new MailAddress("bmuratovic1@gmail.com");
+                mail.From = new MailAddress("nemopolar@gmail.com");
                 mail.Subject = "Email";
                 mail.IsBodyHtml = true;
 
@@ -68,17 +73,19 @@ namespace FitAndHealthyAPI.Controllers
                 sc.Send(mail);
                 Console.WriteLine("-- Sending Email --");
                 return new HttpResponseMessage(HttpStatusCode.Created);
-            }
+           // }
 
-            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            //return new HttpResponseMessage(HttpStatusCode.BadRequest);
         }
 
+        [FitAndHealthyAPI.Filters.FandHAuthorize]
         public User Get(int id)
         {
             baseInterface<User> users = new baseRepository<User>(new FandHContext());
             return users.Get(id);
         }
 
+        [FitAndHealthyAPI.Filters.FandHAuthorize]
         public User Delete(int id)
         {
             var ctx = new FandHContext();
