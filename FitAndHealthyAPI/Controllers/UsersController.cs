@@ -46,9 +46,7 @@ namespace FitAndHealthyAPI.Controllers
                 WebSecurity.InitializeDatabaseConnection("FandHContext", "Users", "Id", "Username", autoCreateTables: true);
             }
 
-           // ctx.Users.Add(user);
-            WebSecurity.CreateUserAndAccount(user.Username, user.Password, new { Password = "", Banned = "false", ConfirmationToken = token, ConfirmedUser = "false", user.Email }, false);//ctx.SaveChanges() != 0)
-           // {
+            WebSecurity.CreateUserAndAccount(user.Username, user.Password, new { Password = "", Banned = "false", ConfirmationToken = token, ConfirmedUser = "false", user.Email }, false);
 
                 MailMessage mail = new MailMessage();
                 mail.To.Add(user.Email);
@@ -56,27 +54,21 @@ namespace FitAndHealthyAPI.Controllers
                 mail.Subject = "Email";
                 mail.IsBodyHtml = true;
 
-                string body = "localhost:11330/api/confirmation/?Token=" + token;
-                //string body = "http://lejlaproject.somee.com/api/confirmation/?Token=" + token;
+                //string body = "localhost:11330/api/confirmation/?Token=" + token;
+                string body = "http://lejlaproject.somee.com/api/confirmation/?Token=" + token;
 
-                //string body = "<html><body> Hello,";
-                //body += "<br />Please click the following link to activate your account <a href=\"" + link + "\"> Click on the link </a>";
-                //body += "<br /><br />Thanks</body></html>";
                 mail.Body = body;
                 mail.Priority = MailPriority.High;
 
                 SmtpClient sc = new SmtpClient("smtp.gmail.com", 587);
                 sc.UseDefaultCredentials = false;
-                sc.Credentials = new System.Net.NetworkCredential("probnimail00@gmail.com", "nwtprojekat");//username doesn't include @gmail.com
+                sc.Credentials = new System.Net.NetworkCredential("probnimail00@gmail.com", "nwtprojekat");
 
                 sc.EnableSsl = true;
 
                 sc.Send(mail);
                 Console.WriteLine("-- Sending Email --");
                 return new HttpResponseMessage(HttpStatusCode.Created);
-           // }
-
-            //return new HttpResponseMessage(HttpStatusCode.BadRequest);
         }
 
         [FitAndHealthyAPI.Filters.FandHAuthorize]

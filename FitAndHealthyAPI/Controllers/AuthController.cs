@@ -25,7 +25,6 @@ namespace FitAndHealthyAPI.Controllers
                     WebSecurity.InitializeDatabaseConnection("FandHContext", "Users", "Id", "Username", autoCreateTables: true);
                 WebSecurity.Logout();
 
-                //Thread.CurrentPrincipal = null;
                 System.Web.HttpContext.Current.User = null;
 
                 HttpContext.Current.User = null;

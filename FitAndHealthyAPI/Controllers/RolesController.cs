@@ -9,7 +9,7 @@ using FitAndHealthyAPI.Models;
 
 namespace FitAndHealthyAPI.Controllers
 {
- //   [FitAndHealthyAPI.Filters.FandHAuthorize]
+    [FitAndHealthyAPI.Filters.FandHAuthorize]
     public class RolesController : BaseApiController<Role>
     {
 

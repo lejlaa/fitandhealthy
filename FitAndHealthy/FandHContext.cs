@@ -12,7 +12,6 @@ namespace FitAndHealthy
     {
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<Diet> Diets { get; set; }
-        //public DbSet<Action> Actions { get; set; }
         public DbSet<Program> Programs { get; set; }         
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
@@ -65,8 +64,7 @@ namespace FitAndHealthy
 
 
             //modelBuilder.Entity<User>().HasMany<Role>(x => x.Roles).WithMany(p => p.Users ).Map(m => m.ToTable("UserRole").MapLeftKey("UserId").MapRightKey("RoleId"));
-            //modelBuilder.Entity<Role>().HasMany<Action>(x => x.Actions).WithMany(p => p.Roles).Map(m => m.ToTable("RoleAtion").MapLeftKey("RoleId").MapRightKey("ActionId"));
-
+            
             //modelBuilder.Entity<Day>().HasRequired(x => x.Person).WithMany(p => p.Days).Map(m => m.MapKey("Person")); 
             //modelBuilder.Entity<Detail>().HasRequired(x => x.Day).WithMany(p => p.Details).Map(m => m.MapKey("Day")); 
             //modelBuilder.Entity<Detail>().HasRequired(x => x.Project).WithMany(p => p.Details).Map(m => m.MapKey("Project"));
