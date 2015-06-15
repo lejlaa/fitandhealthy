@@ -58,7 +58,7 @@ namespace FitAndHealthyAPI.Controllers
                 Role role = fandhDepo.Get(id);
                 if (role == null)
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
-                fandhDepo.Insert(role);
+                fandhDepo.Delete(role);
                 fandhDepo.Commit();
                 return Request.CreateResponse(HttpStatusCode.OK);
             }

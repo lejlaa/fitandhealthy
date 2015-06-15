@@ -58,7 +58,7 @@ namespace FitAndHealthyAPI.Controllers
                 Diet diet = fandhDepo.Get(id);
                 if (diet == null)
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
-                fandhDepo.Insert(diet);
+                fandhDepo.Delete(diet);
                 fandhDepo.Commit();
                 return Request.CreateResponse(HttpStatusCode.OK);
             }

@@ -56,7 +56,7 @@ namespace FitAndHealthyAPI.Controllers
                 Category category = fandhDepo.Get(id);
                 if (category == null)
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
-                fandhDepo.Insert(category);
+                fandhDepo.Delete(category);
                 fandhDepo.Commit();
                 return Request.CreateResponse(HttpStatusCode.OK);
             }

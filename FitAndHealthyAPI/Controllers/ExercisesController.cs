@@ -56,7 +56,7 @@ namespace FitAndHealthyAPI.Controllers
                 Exercise exercise = fandhDepo.Get(id);
                 if (exercise == null)
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
-                fandhDepo.Insert(exercise);
+                fandhDepo.Delete(exercise);
                 fandhDepo.Commit();
                 return Request.CreateResponse(HttpStatusCode.OK);
             }

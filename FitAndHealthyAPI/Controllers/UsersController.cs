@@ -57,6 +57,7 @@ namespace FitAndHealthyAPI.Controllers
                 mail.IsBodyHtml = true;
 
                 string body = "localhost:11330/api/confirmation/?Token=" + token;
+                //string body = "http://lejlaproject.somee.com/api/confirmation/?Token=" + token;
 
                 //string body = "<html><body> Hello,";
                 //body += "<br />Please click the following link to activate your account <a href=\"" + link + "\"> Click on the link </a>";

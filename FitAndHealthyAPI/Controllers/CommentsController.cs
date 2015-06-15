@@ -56,7 +56,7 @@ namespace FitAndHealthyAPI.Controllers
                 Comment comment = fandhDepo.Get(id);
                 if (comment == null)
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
-                fandhDepo.Insert(comment);
+                fandhDepo.Delete(comment);
                 fandhDepo.Commit();
                 return Request.CreateResponse(HttpStatusCode.OK);
             }

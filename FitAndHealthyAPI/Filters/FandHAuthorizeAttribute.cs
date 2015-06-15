@@ -7,6 +7,9 @@ using System.Threading;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using WebMatrix.WebData;
+using FitAndHealthy;
+using FitAndHealthyAPI;
+using System.Linq;
 
 namespace FitAndHealthyAPI.Filters
 {
@@ -35,10 +38,19 @@ namespace FitAndHealthyAPI.Filters
 
                         //WebSecurity.CreateUserAndAccount("lejla", "lejla", new { Password = "lejla", Banned = "false" }, false);
                     }
-                    if (WebSecurity.Login(username, password)) { 
-                        var principal = new GenericPrincipal(new GenericIdentity(username), null);
-                        System.Web.HttpContext.Current.User = principal; return; 
-                    }  
+
+                    using (var ctx = new FandHContext())
+                    {
+                        User user = ctx.Users.SingleOrDefault(x => x.ConfirmationToken != null && x.Username == username);
+                        if (user.ConfirmedUser == "True")
+                        {
+                            if (WebSecurity.Login(username, password))
+                            {
+                                var principal = new GenericPrincipal(new GenericIdentity(username), null);
+                                System.Web.HttpContext.Current.User = principal; return;
+                            }
+                        }
+                    }                     
                 }
             }
             HandleUnauthorized(actionContext);      
