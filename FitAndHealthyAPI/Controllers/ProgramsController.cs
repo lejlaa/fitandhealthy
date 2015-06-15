@@ -9,6 +9,7 @@ using FitAndHealthyAPI.Models;
 
 namespace FitAndHealthyAPI.Controllers
 {
+   
     public class ProgramsController : BaseApiController<Program>
     {
 
@@ -33,6 +34,7 @@ namespace FitAndHealthyAPI.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
             }
         }
+         [FitAndHealthyAPI.Filters.FandHAuthorize]
         public HttpResponseMessage Post(ProgramModel programModel)
         {
             try
@@ -55,7 +57,7 @@ namespace FitAndHealthyAPI.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
         }
-
+         [FitAndHealthyAPI.Filters.FandHAuthorize]
         public HttpResponseMessage Delete(int id)
         {
             try
@@ -72,7 +74,7 @@ namespace FitAndHealthyAPI.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
         }
-
+         [FitAndHealthyAPI.Filters.FandHAuthorize]
         public HttpResponseMessage Put(ProgramModel programModel, int id)
         {
             try
