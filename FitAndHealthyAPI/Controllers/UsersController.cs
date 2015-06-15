@@ -13,8 +13,6 @@ using WebMatrix.WebData;
 
 namespace FitAndHealthyAPI.Controllers
 {
-
-    
     public class UsersController : ApiController
     {
         [FitAndHealthyAPI.Filters.FandHAuthorize]

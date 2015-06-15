@@ -11,6 +11,8 @@ namespace FitAndHealthyAPI.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string Banned { get; set; }
+        public string ConfirmedUser { get; set; }
+        public string Email { get; set; }
         public List<RoleModel> Roles { get; set; }
         public List<CommentModel> Comments { get; set; }
         public List<ProgramModel> Programs { get; set; }

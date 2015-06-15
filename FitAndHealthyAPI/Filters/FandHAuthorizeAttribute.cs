@@ -14,8 +14,9 @@ namespace FitAndHealthyAPI.Filters
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            //base.OnAuthorization(actionContext);ž
-            if (Thread.CurrentPrincipal.Identity.IsAuthenticated) return;
+            //base.OnAuthorization(actionContext);
+            //if (Thread.CurrentPrincipal.Identity.IsAuthenticated) return;
+            if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated) return;
 
             var authHeader = actionContext.Request.Headers.Authorization; 
             if (authHeader != null) {   
@@ -36,7 +37,7 @@ namespace FitAndHealthyAPI.Filters
                     }
                     if (WebSecurity.Login(username, password)) { 
                         var principal = new GenericPrincipal(new GenericIdentity(username), null);
-                        Thread.CurrentPrincipal = principal; return; 
+                        System.Web.HttpContext.Current.User = principal; return; 
                     }  
                 }
             }
