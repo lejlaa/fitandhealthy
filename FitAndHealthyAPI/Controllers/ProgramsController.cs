@@ -20,14 +20,15 @@ namespace FitAndHealthyAPI.Controllers
         {
             //return fandhDepo.GetAll().ToList().Select(x => fandhFact.Create(x)).ToList();
             var ctx = new FandHContext();
-            List<Program> programs = ctx.Programs.Include("Trainings").ToList();
+            List<Program> programs = ctx.Programs.Include("Trainings").Include("Author").Include("Diet").ToList();
             return programs;
         }
         public HttpResponseMessage Get(int id)
         {
             try
             {
-                Program program = fandhDepo.Get(id);
+                var ctx = new FandHContext();
+                Program program = ctx.Programs.Include("Trainings").Include("Author").Include("Diet").Single(a => a.Id ==id);
                 if (program != null)
                     return Request.CreateResponse(HttpStatusCode.OK, fandhFact.Create(program));
                 else
@@ -114,6 +115,13 @@ namespace FitAndHealthyAPI.Controllers
                 Program newProgram = ctx.Programs.Single(a => a.Id == programModel.Id); //fandhFact.Parse(programModel);
                // newProgram = fandhFact.Parse(programModel);
                // ctx.Entry(newProgram).CurrentValues.SetValues(programModel);
+                newProgram.Name = programModel.Name;
+                newProgram.Description = programModel.Description;
+                newProgram.Duration = programModel.Duration;
+                newProgram.Rating = programModel.Rating;
+                newProgram.RatedByNo = programModel.RatedByNo;
+                newProgram.VideoLink = programModel.VideoLink;
+
                 foreach (TrainingModel trModel in programModel.Trainings)
                 {
                     Training tr = ctx.Trainings.Single(a => a.Id == trModel.Id);
