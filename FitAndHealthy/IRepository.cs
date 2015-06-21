@@ -12,17 +12,5 @@ namespace FitAndHealthy
         //IQueryable<Program> GetAllPrograms();
         //IQueryable<Training> GetAllTrainings();
 
-
-        /*
-        Person GetPerson(int id);
-        IQueryable<Person> GetAllPersons();
-        double GetAllWorkHoursByMonthAndYear(int year, int month);
-        IQueryable<Detail> GetAllDetailsByMonthAndYearForOnePerson(int year, int month);
-        int GetNumberOfPTODaysInMonth(int year, int month);
-        IQueryable<Team> GetAllTeams();
-        IQueryable<ApiUser> GetApiUsers();
-        AuthToken GetAuthToken(string token);
-        bool Insert(AuthToken token);
-         */
     }
 }

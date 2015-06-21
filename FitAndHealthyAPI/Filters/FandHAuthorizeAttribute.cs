@@ -17,8 +17,6 @@ namespace FitAndHealthyAPI.Filters
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            //base.OnAuthorization(actionContext);
-            //if (Thread.CurrentPrincipal.Identity.IsAuthenticated) return;
             if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated) return;
 
             var authHeader = actionContext.Request.Headers.Authorization; 
@@ -35,8 +33,6 @@ namespace FitAndHealthyAPI.Filters
                     if (!WebSecurity.Initialized)
                     {
                         WebSecurity.InitializeDatabaseConnection("FandHContext", "Users", "Id", "Username", autoCreateTables: true);
-
-                        //WebSecurity.CreateUserAndAccount("lejla", "lejla", new { Password = "lejla", Banned = "false" }, false);
                     }
 
                     using (var ctx = new FandHContext())
