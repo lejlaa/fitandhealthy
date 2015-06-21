@@ -77,7 +77,8 @@ namespace FitAndHealthyAPI.Controllers
         {
             try
             {
-                Program program = fandhDepo.Get(id);
+                var ctx = new FandHContext();
+                Program program = ctx.Programs.Include("Trainings").Single(a => a.Id == id);
                
                 if (program == null)
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");
@@ -118,6 +119,10 @@ namespace FitAndHealthyAPI.Controllers
                     Training tr = ctx.Trainings.Single(a => a.Id == trModel.Id);
                     newProgram.Trainings.Add(tr);
                 }
+
+                    Diet d = ctx.Diets.Single(a => a.Id == programModel.DietId);
+                    newProgram.Diet = d;
+                
 
                 ctx.SaveChanges();
                 return Request.CreateResponse(HttpStatusCode.OK);
