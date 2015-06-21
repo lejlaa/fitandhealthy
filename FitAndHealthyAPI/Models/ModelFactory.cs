@@ -109,6 +109,11 @@ namespace FitAndHealthyAPI.Models
         {
             using (FandHContext ctx = new FandHContext())
             {
+                List<Training> trList = new List<Training>();
+                foreach (Training tr in ctx.Trainings)
+                {
+                    trList.Add(tr);
+                }
 
                 return new Program
                 {
@@ -120,7 +125,10 @@ namespace FitAndHealthyAPI.Models
                     Rating = program.Rating,
                     VideoLink = program.VideoLink,
                     Author = ctx.Users.Find(program.AuthorId),
-                    Diet = ctx.Diets.Find(program.DietId)
+                    Diet = ctx.Diets.Find(program.DietId),
+                    //Trainings = trList
+
+
                 };
             }
         }

@@ -9,7 +9,6 @@ using FitAndHealthyAPI.Models;
 
 namespace FitAndHealthyAPI.Controllers
 {
-    [FitAndHealthyAPI.Filters.FandHAuthorize]
     public class TrainingsController : BaseApiController<Training>
     {
         public TrainingsController(baseInterface<Training> depo) : base(depo) { }

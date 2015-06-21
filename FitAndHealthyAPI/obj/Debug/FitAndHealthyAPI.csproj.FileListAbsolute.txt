@@ -164,6 +164,20 @@ C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\WebApiCont
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.xml
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Common.xml
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Ninject.Web.Mvc.xml
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Microsoft.Web.Helpers.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Cors.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.dll
+C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Microsoft.Web.Helpers.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Cors.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.WebHost.xml
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthyAPI\bin\FitAndHealthyAPI.dll.config
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthyAPI\bin\FitAndHealthyAPI.dll
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthyAPI\bin\FitAndHealthyAPI.pdb
@@ -254,17 +268,3 @@ D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthyAPI\bin\zh-Hant\System.Spatial.resou
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthyAPI\obj\Debug\FitAndHealthyAPI.csprojResolveAssemblyReference.cache
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthyAPI\obj\Debug\FitAndHealthyAPI.dll
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthyAPI\obj\Debug\FitAndHealthyAPI.pdb
-C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Microsoft.Web.Helpers.dll
-C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Cors.dll
-C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.dll
-C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.xml
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\Microsoft.Web.Helpers.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Net.Http.Formatting.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Cors.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.WebHost.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Net.Http.Formatting.xml
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.xml
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.Cors.xml
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthyAPI\bin\System.Web.Http.WebHost.xml
