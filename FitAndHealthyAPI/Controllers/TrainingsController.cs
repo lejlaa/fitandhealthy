@@ -13,9 +13,11 @@ namespace FitAndHealthyAPI.Controllers
     {
         public TrainingsController(baseInterface<Training> depo) : base(depo) { }
 
-        public List<TrainingModel> Get()
+        public List<Training> Get()
         {
-            return fandhDepo.GetAll().ToList().Select(x => fandhFact.Create(x)).ToList();
+            var ctx = new FandHContext();
+            List<Training> trainings = ctx.Trainings.ToList();
+            return trainings;
         }
         public HttpResponseMessage Get(int id)
         {
