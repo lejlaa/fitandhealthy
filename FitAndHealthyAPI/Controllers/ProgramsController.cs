@@ -78,8 +78,8 @@ namespace FitAndHealthyAPI.Controllers
         {
             try
             {
-                var ctx = new FandHContext();
-                Program program = ctx.Programs.Include("Trainings").Single(a => a.Id == id);
+                //var ctx = new FandHContext();
+                Program program = fandhDepo.Get(id);//ctx.Programs.Include("Trainings").Single(a => a.Id == id);
                
                 if (program == null)
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "No data");

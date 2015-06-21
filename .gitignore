@@ -14,3 +14,4 @@ FitAndHealthyAPI/FitAndHealthyAPI.csproj
 FitAndHealthyAPI/obj/Debug/FitAndHealthyAPI.csproj.FileListAbsolute.txt
 FitAndHealthyAPI/obj/Debug/FitAndHealthyAPI.csprojResolveAssemblyReference.cache
 FitAndHealthyAPI/obj/Debug/FitAndHealthyAPI.pdb
+*.dll

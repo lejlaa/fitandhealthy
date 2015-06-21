@@ -8,16 +8,6 @@ C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityF
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.csprojResolveAssemblyReference.cache
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.dll
 C:\Users\Berina00\Documents\GitHub\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.pdb
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.csprojResolveAssemblyReference.cache
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.pdb
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHealthy.dll.config
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHealthy.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHealthy.pdb
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.xml
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHealthy.dll.config
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHealthy.dll
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHealthy.pdb
@@ -27,3 +17,13 @@ D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.xml
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.SqlServer.xml
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.dll
 D:\NWT MVC\FINAL\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.pdb
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHealthy.dll.config
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHealthy.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\FitAndHealthy.pdb
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.csprojResolveAssemblyReference.cache
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.dll
+C:\Users\Layla\Documents\GitHub\fitandhealthy\FitAndHealthy\obj\Debug\FitAndHealthy.pdb
